@@ -1,0 +1,277 @@
+/* Reset básico */
+/* Reset básico */
+html {
+  scroll-behavior: smooth;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color:#1A1A1A;
+  font-family: 'Arial', sans-serif;
+}
+
+.header {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1A1A1A; /* Fundo escuro */
+  padding: 5px 110px;
+  transition: top 0.5s ease;
+  z-index: 1000; /* Certifique-se de que o header fique acima de outros elementos */
+  margin-left: 0;
+}
+body.scrolled .header {
+  top: -100px; /* ou ajuste conforme o tamanho do seu header */
+}
+
+.logo img {
+  height: 25px;
+  margin-left: -75px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 130px;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+/* Linha embaixo no hover e no item ativo */
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #f8f8f8;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-menu li:hover a::after,
+.nav-menu li.active a::after {
+  width: 100%;
+}
+.cill{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7vh;
+  margin-left: 10px;
+  margin-top:35px;
+  position: fixed;
+
+}
+video {
+  display: block;
+  position: relative;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Certifique-se de que o vídeo fique atrás do conteúdo */
+}
+.video2 {
+  display: block;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+  z-index: 1; /* Certifique-se de que o vídeo fique atrás do conteúdo */
+}
+.nav-configurator{
+  position: fixed;
+  top: 50px;
+  right: 40px;
+}
+.nav-menu-configurator {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-menu-configurator a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 5px;
+  transition: text-shadow 0.3s ease;
+}
+.nav-menu-configurator a:hover {
+  text-shadow: 0 0 10px #000000, 0 0 10px #f8f8f8, 0 0 15px #f8f8f8;
+}
+.section2 {
+ background-color: #fafafa;
+  height: 100vh; /* ou ajuste conforme desejar */
+  position: relative;
+}
+.section4{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  background-color: #FAFAFA;
+}
+.carro{
+  width: 100%;
+  height: 120%;
+  display: block;
+}
+
+.section5{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  background-color: #FAFAFA;
+}
+.imagem-interativa {
+  width: 100%;
+  height: 100%;
+    display: block;
+}
+
+.info-section {
+  background-color: #111; /* ou #0d0d0d */
+  color: #fff;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  font-family: 'Arial', sans-serif;
+}
+
+.info-box h3 {
+  color: #aaa;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.info-box p,
+.info-text p {
+  margin: 0.4rem 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.read-more {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  border: 1px solid #555;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.read-more:hover {
+  background-color: #fff;
+  color: #111;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+  padding: 80px 20px;
+}
+
+.section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sectionsection3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  background-color: #FAFAFA;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

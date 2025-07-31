@@ -1,0 +1,169 @@
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ferrari</title>
+  <link rel="stylesheet" href="style.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+  body {
+      background: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .imagem-interativa {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .imagem-interativa img {
+      width: 100%;
+      display: block;
+    }
+  
+    .botao-circulo {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 50%;
+      border: 2px solid white;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .botao-circulo:hover {
+      transform: scale(1.2);
+    }
+
+    /* Posicionamentos (valores ajustáveis) */
+    .btn1 { top: 40%; left: 10%; }
+    .btn2 { top: 35%; left: 42%; }
+    .btn3 { top: 20%; left: 60%; }
+    .btn4 { top: 18%; left: 83%; }
+  </style>
+</style>
+<body>
+  <header class="header">
+    <div class="logo">
+      <img src="img/cavalo rampante.png" alt="Logo" />
+    </div>
+    <nav class="nav">
+      <ul class="nav-menu">
+        <li><a href="#">RACING</a></li>
+        <li><a href="#">SPORTS CARS</a></li>
+        <li><a href="#">COLLECTIONS</a></li>
+        <li><a href="#">EXPERIENCES</a></li>
+        <li><a href="#">ABOUT US</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="section1" class="section1">
+    <div>
+        <img class="cill" src="img/12cillindri.png" alt="">
+        <nav class="nav-configurator">
+          <ul class="nav-menu-configurator">
+            <li><a href="#">CONFIGURATOR</a></li>
+            <li><a href="#">ENQUIRE</a></li>
+            <li><a href="#"><i class="fa fa-share"></i></a></li>
+          </ul>
+        </nav>
+   <video autoplay muted loop playsinline class="video">
+    <source src="video/Welcome-the-Ferrari-12Cilindri.webm" type="video/webm" />
+    Seu navegador não suporta o formato de vídeo.</video>
+
+    </div>
+ </section>
+
+<section id="section2" class="section2">
+ <video autoplay muted loop playsinline class="video2">
+   <source src="video/motor.mp4" type="video/mp4"/>
+    Seu navegador não suporta o formato de vídeo.
+  </video>
+
+</section>
+
+<section class="info-section">
+  <div class="info-box">
+    <h3>CO2 Emission:</h3>
+    <p>LOW: 618 G/KM</p>
+    <p>MID: 356 G/KM</p>
+    <p>HIGH: 302 G/KM</p>
+    <p>EXTRA HIGH: 296 G/KM</p>
+    <p>COMBINED: 353 G/KM</p>
+  </div>
+
+  <div class="info-box">
+    <h3>Fuel Consumption:</h3>
+    <p>LOW: 27.2 L/100KM</p>
+    <p>MID: 15.7 L/100KM</p>
+    <p>HIGH: 13.3 L/100KM</p>
+    <p>EXTRA HIGH: 13.1 L/100KM</p>
+    <p>COMBINED: 15.5 L/100KM</p>
+  </div>
+
+  <div class="info-text">
+    <p>
+      The values of fuel consumptions and CO2 emissions shown were determined 
+      according to the European Regulation (EC) 715/2007 in the version applicable 
+      at the time of type approval. The fuel consumption and CO2 emission figures 
+      refer to the WLTP cycle.
+    </p>
+    <a href="#" class="read-more">READ MORE</a>
+  </div>
+</section>
+
+
+<section id="section4" class="sectionsection4">
+<img class="carro" src="img/12cillindrirossocorsa.avif" alt="">
+</section>
+
+<div class="imagem-interativa">
+    <img src="img/interior.avif" alt="Painel Ferrari">
+
+    <!-- Botões -->
+    <div class="botao-circulo btn1" title="Volante"></div>
+    <div class="botao-circulo btn2" title="Painel central"></div>
+    <div class="botao-circulo btn3" title="Saída de ar esquerda"></div>
+    <div class="botao-circulo btn4" title="Saída de ar direita"></div>
+  </div>
+
+</body>
+<script>
+let lastScrollTop = 0;
+
+window.addEventListener("scroll", () => {
+  const current = Math.max(window.scrollY, 0);
+
+  if (current > lastScrollTop && current > 100) { // Só esconde após 100px
+    document.body.classList.add("scrolled");
+  } else {
+    document.body.classList.remove("scrolled");
+  }
+
+  lastScrollTop = current;
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      requestAnimationFrame(() => {
+        entry.target.classList.add('show');
+      });
+    }
+  });
+}, {
+  threshold: 0.1
+});
+</script>
+</html>
+
+
+
+
+
