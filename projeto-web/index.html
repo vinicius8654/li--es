@@ -22,27 +22,34 @@
     .imagem-interativa {
       position: relative;
       width: 100%;
+      height: 110%;
       max-width: 100%;
       margin: 0 auto;
+      overflow: hidden;
     }
 
     .imagem-interativa img {
       width: 100%;
        height: 110%;
       display: block;
+      position: relative;
+      z-index: 1;
     }
+
   
     .botao-circulo {
       position: absolute;
-      width: 40px;
-      height: 40px;
-      background-color: rgba(255, 255, 255, 0.7);
+      width: 20px;
+      height: 20px;
+      background-color: rgba(255, 255, 255, 0.304);
       border-radius: 50%;
       border: 2px solid white;
       cursor: pointer;
       transition: transform 0.2s;
        display: inline-block;
       animation: pulsar 1.5s infinite ease-in-out;
+      z-index: 5;
+        box-shadow: 0 0 8px white;
     }
 
     .botao-circulo:hover {
@@ -53,7 +60,10 @@
     .btn1 {top: 50%; left: 26%; }
     .btn2 { top: 60%; left: 47%; }
     .btn3 { top: 50%; left: 55%; }
-
+    .btn4 { top: 53%; left: 10%; }
+    .btn5 { top: 72%; left: 47%; }
+    .btn6 { top: 60%; left: 90%; } 
+    .btn7 { top: 45%; left: 89%; }
     @keyframes pulsar {
   0% {
     transform: scale(1);
@@ -80,13 +90,14 @@
   transform: translateX(-50%);
   background-color: #ff000000;
   color: white;
-    margin-top: 6px;
+  margin-top: 6px;
   padding: 4px 8px;
   border-radius: 6px;
   font-size: 14px;
   white-space: nowrap;
   transition: opacity 0.3s ease;
-  z-index: 10;
+  z-index: 6;
+  pointer-events: none;
 }
 
 /* Mostrar tooltip ao passar o mouse */
@@ -95,7 +106,17 @@
   opacity: 1;
 }
 
-  </style>
+    .imagem-interativa video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 110%;
+  object-fit: cover;
+  z-index: 2;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
 </style>
 <body>
 
@@ -216,7 +237,11 @@
 
 
 <section id="section4" class="sectionsection4">
-<img class="carro" src="img/12cillindrirossocorsa.avif" alt="">
+  <div class="raiox-container">
+    <img src="img/12cillindriwhite.avif" alt="Carro Exterior" class="imagem-exterior">
+    <img src="img/12cillindrirossocorsa.avif" alt="Carro Interno" class="imagem-interna">
+    <div class="anel"></div>
+  </div>
 </section>
 
 <!--FOTO RAIO X FUTURO-->
@@ -231,13 +256,13 @@
 
   <!-- Botões clicáveis que redirecionam -->
   <a href="volante.html" class="botao-circulo btn1" title="">
-      <span class="tooltip">Sterring wheel</span>
+      <span class="tooltip">STERRING WHEEL</span>
   </a>
   <a href="painel-central.html" class="botao-circulo btn2" title="">
       <span class="tooltip">HUMAN MACHINE INTERFACE</span>
   </a>
   <a href="saida-esquerda.html" class="botao-circulo btn3" title="">
-      <span class="tooltip">Dual Cockpit</span>
+      <span class="tooltip">DUAL COCKPIT</span>
   </a>
 </div>
 
@@ -245,14 +270,35 @@
 
 
 
-
 <section id="section4" class="sectionsection4">
 <img class="carro" src="img/rosso.avif" alt="">
 </section>
 
-<section id="section4" class="sectionsection4">
-<img class="carro" src="img/ponto.avif" alt="">
-</section>
+
+<div class="imagem-interativa">
+  <img src="img/ponto.avif" alt="Aerodinamicas">
+  <!-- Vídeo por cima -->
+
+  <video id="videoIntro" autoplay muted playsinline>
+    <source src="video/aerodinamic.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo HTML5.
+  </video>
+
+
+  <!-- Botões clicáveis que redirecionam -->
+  <a href="volante.html" class="botao-circulo btn4" title="">
+      <span class="tooltip">COOLING LAYOUT</span>
+  </a>
+  <a href="painel-central.html" class="botao-circulo btn5" title="">
+      <span class="tooltip">DOWNFORCE TROUGH THE<br>UNDERBODY</span>
+  </a>
+  <a href="saida-esquerda.html" class="botao-circulo btn6" title="">
+      <span class="tooltip">EXTRACTOR</span>
+  </a>
+  <a href="saida-esquerda.html" class="botao-circulo btn7" title="">
+      <span class="tooltip">THE<br> AERODYNAMICS<br> KICK IN</span>
+  </a>
+</div>
 
 
 </body>
@@ -295,8 +341,23 @@ botao.addEventListener("click", () => {
   }
 });
 
+  const video = document.getElementById('videoIntro');
 
+  video.addEventListener('ended', () => {
+    video.style.opacity = '0';
+  });
 
+    const container = document.querySelector('.raiox-container');
+    const imagemInterna = document.querySelector('.imagem-interna');
+    const anel = document.querySelector('.anel');
+
+    container.addEventListener('mousemove', (e) => {
+      const x = e.offsetX;
+      const y = e.offsetY;
+      imagemInterna.style.clipPath = `circle(150px at ${x}px ${y}px)`;
+      anel.style.left = `${x - 150}px`;
+      anel.style.top = `${y - 150}px`;
+    });
 
 
 
